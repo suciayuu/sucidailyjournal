@@ -78,7 +78,6 @@ include "koneksi.php";
               <li class="nav-item">
                 <a class="nav-link" href="login.php" target="_blank">Login</a>
               </li>
-
             </ul>
             <button id="darkModeToggle" class="btn btn-outline-secondary ms 2">
               <i id="darkModeIcon" class="bi bi-moon-fill"></i>

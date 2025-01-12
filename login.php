@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $password = md5($_POST['password']);
 
 	//prepared statement
-  $stmt = $conn->prepare("SELECT username 
+  $stmt = $conn->prepare("SELECT id , username 
                           FROM user 
                           WHERE username=? AND password=?");
 
@@ -37,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (!empty($row)) {
     //jika ada, simpan variable username pada session
     $_SESSION['username'] = $row['username'];
+    $_SESSION['id'] = $row['id'];
 
     //mengalihkan ke halaman admin
     header("location:admin.php");
@@ -93,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               placeholder="Password"
             />
             <div class="text-center my-3 d-grid">
-              <button class="btn btn-danger rounded-4">Login</button>
+              <button type="submit" class="btn btn-danger rounded-4">Login</button>
             </div>
           </form>
         </div>
@@ -102,9 +103,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
 </div>
 <?php
-//set variable username dan password dummy
-$username = "admin";
-$password = "123456";
 
 //check apakah ada request dengan method POST yang dilakukan
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

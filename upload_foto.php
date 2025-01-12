@@ -35,7 +35,7 @@ function upload_foto($File){
 		// if everything is ok, try to upload file
 	}else{
 		//Create new filename:
-        $NewName = date("YmdHis"). '.' . $FileExt;
+    	$NewName = date("YmdHis"). '.' . $FileExt;
         $UploadDestination = "img/". $NewName; 
 
 		if (move_uploaded_file($TmpLocation, $UploadDestination)) {
